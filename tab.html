@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{margin:0; padding:0; list-style:none;}
+		li{width:100px; height:30px; float:left; background:#ccc; line-height:30px; text-align:center; border-right:1px solid #fff; cursor:pointer;}
+		li.on{background:#ddd}
+		.cl:after{display:block;clear:both;content:"";visibility:hidden;height:0} 
+		.cl{zoom:1} 
+		.content{display:none;}
+		.show{display:block;}
+	</style>
+</head>
+<body>
+	<ul class="cl">
+		<li class="on">tab1</li>
+		<li>tab2</li>
+		<li>tab3</li>
+		<li>tab4</li>
+	</ul>
+	<div class="box">
+		<div class="content show">111111111</div>
+		<div class="content">222222222</div>
+		<div class="content">333333333</div>
+		<div class="content">444444444</div>
+	</div>
+</body>
+<!-- <script type="text/javascript" src="jquery.js"></script> -->
+<script type="text/javascript">
+	// window.onload=function(){
+	// 	var aLi=document.getElementsByTagName('li')
+	// 	var aContent=document.getElementsByClassName('content')
+	// 	for (var i = 0; i < aLi.length; i++) {
+	// 		(function(i){
+	// 			aLi[i].onclick=function(){
+	// 				for (var j = 0; j < aLi.length; j++) {
+	// 					aLi[j].className='';
+	// 					aContent[j].className='content';
+	// 				};
+	// 				aContent[i].className='content show';
+	// 				this.className='on'
+	// 			}
+	// 		})(i)
+	// 	};
+	// }
+
+	
+
+	function Tab(){
+		var _this=this
+		_this.aLi=document.getElementsByTagName('li')
+		_this.aContent=document.getElementsByClassName('content')
+		for (var i = 0; i < _this.aLi.length; i++) {
+			(function(i){
+				_this.aLi[i].onclick=function(){
+					_this.touch(_this,i)
+				} 
+			})(i)
+		};
+	}
+
+	Tab.prototype.touch=function(_this,i){
+		for (var j = 0; j < _this.aLi.length; j++) {
+			_this.aLi[j].className='';
+			_this.aContent[j].className='content';
+		};
+		_this.aContent[i].className='content show';
+		_this.aLi[i].className='on'
+	}
+
+	new Tab()
+</script>
+</html>
