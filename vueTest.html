@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+		a{color:#666; text-decoration:none;}
+		*{margin:0; padding:0; list-style:none; font-size:14px;}
+		.task{width:1000px; margin:0 auto; background:#eee; border:1px solid #fff}
+		li,.no-task{background:#e1e1e1; position:relative;height:30px; line-height:30px; border-bottom:1px solid #671230}
+		i{background:url(img/close.jpg) 0 0 no-repeat; position:absolute; right:0; top:5px; width:20px; height:20px; background-size:cover; cursor:pointer;}
+		h2{margin:20px 0 10px;}
+		.red{color:red;}
+		.gray{color:gray}
+		.btn{border:1px solid #333; padding:2px 5px; background:#fff; margin-bottom:10px; display:inline-block}
+		.editing label,.no{display:none;}
+		.editing .no{display:block;}
+		.no{height:26px; line-height:26px;}
+	</style>
+</head>
+<body>
+<div id="aa">
+	
+	<div class="task">
+		<h2>添加任务：</h2>
+		<input type="text" @keyup.enter="plus" v-model="todo">
+		<input type="button" value="添加" @click="plus">
+		<div class="red" v-show="list.length">4个任务未完成</div>
+		<h2>任务列表：</h2>
+		<a class="btn" href="javascript:;" v-show="list.length">全部任务</a>
+		<a class="btn" href="javascript:;" v-show="list.length">已完成任务</a>
+		<a class="btn" href="javascript:;" v-show="list.length">未完成任务</a>
+		<div class="no-task" v-show="!list.length">还没有添加任何任务</div>
+		<ul>
+			<li v-for="(item,index) in list" :class="{editing:doing===item}">
+				<label @dblclick="edit(item)">
+					<input type="checkbox" v-model="item.isChecked">
+					<span v-show="!item.isChecked">{{item.title}}</span>
+					<del v-show="item.isChecked" :class="{gray:item.isChecked}">{{item.title}}</del>
+				</label>
+				<input type="text" class="no" v-model="item.title" v-focus="doing===item" @blur="sure(item.title)" @keyup.enter="sure(item.title)">
+				<i @click="del(index)"></i>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="vue2.js"></script>
+<script type="text/javascript">
+	
+	
+	var list=[
+		{
+			title:'吃饭睡觉'
+		},
+		{
+			title:'123123'
+		}
+	]
+	var vm=new Vue({
+		el:'#aa',
+		data:{
+			list:list,
+			todo:'',
+			doing:''
+		},
+		methods:{
+			plus(){
+				this.list.push({
+					title:this.todo,
+					isChecked:false
+				})
+				this.todo=''
+			},
+			del(index){
+				this.list.splice(index,1)
+			},
+			edit(item){
+				this.doing=item
+			},
+			sure(title){
+				this.doing=title
+			}
+		},
+		directives:{
+			'focus':{
+				update(el){
+					el.focus()
+				}
+			}
+		}
+	})
+        
+
+
+  
+</script>
+</html>
