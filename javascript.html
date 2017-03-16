@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+		table{width:500px; margin:0 auto;}
+		table,tr,td{border:1px solid red; border-collapse:collapse;}
+		td{height:30px; overflow:hidden; width:100px; white-space:nowrap}
+	</style>
+</head>
+<html ng-app="myApp">
+	<body>
+		<input id="dv1" class="dv1" name="a" value="aaa" type="text">
+    <div class="dv2">bbb</div>
+		<div class="dv3">ccc</div>
+		
+	</body>
+	<script src="jquery.js"></script>
+	<script>
+		//var abc=''
+		// var user="the window";
+		// var obj={
+		// 	user:"my obj",
+		// 	getNameFunc:function(){
+		// 		return function(){
+		// 			return this.user;
+		// 		}
+		// 	}
+		// }
+
+		// alert(obj.getNameFunc()())
+		// for (var i = 1; i < 4; i++) {
+		// 	$('.dv'+i).click(function(){
+		// 		alert(x)
+		// 	})
+		// };
+
+
+		// function box(){
+		// 	var age=100;
+		// 	return function(){
+		// 		age++;
+		// 		return age;
+		// 	}
+		// }
+
+		// var b=box();
+		// alert(b())
+		// alert(b())
+		// alert(b())
+		// alert(box()())
+		// alert(box()())
+		// alert(box()())
+		// function box(){
+		// 	var arr=[];
+		// 	for (var i = 0; i < 3; i++) {
+		// 		arr[i]=function(){
+		// 			return i
+		// 		}
+		// 	};
+		// 	return arr;
+		// }
+		// var obj={}
+		// var arr=[]
+		// console.log(Object.prototype.toString.call(obj));  
+		// console.log(Object.prototype.toString.call(arr));  
+		// console.log(obj.toString())
+		// console.log(null instanceof Object)
+		// [name,age]=['wayou','male']
+		// console.log(name);
+		// function box(name,age){
+		// 	var obj=new Object();
+		// 	obj.name=name;
+		// 	obj.age=age;
+		// 	obj.run=function(){
+		// 		return this.name+this.age+'运行中'
+		// 	}
+		// 	return obj;
+		// }
+
+		// console.log(box('1','2').run())
+
+		// var box1=new box('2','3')
+		// console.log(box1.run())
+
+		// function box(name,age){
+		// 	this.name=name;
+		// 	this.age=age;
+		// 	this.run=function(){
+		// 		return this.name+this.age
+		// 	}
+		// }
+
+		// var b=box('1','2')
+		// console.log(b)
+		// var b={};
+
+		// box.call(b,'1','2')
+		// console.log(b)
+
+		// var obj = {}
+
+  //       function fn(name) {
+  //           if (this != obj) {
+  //               arguments.callee.call(obj, name)
+  //               return obj
+  //           }
+
+  //           this.name = name
+  //       }
+        
+  //       console.log(fn('aaa'))
+  //       console.log(new fn('aaa'))
+
+  		// function aaa(num){
+  		// 	num=num-1
+  		// 	if(num>0){
+  		// 		aaa(num)
+  		// 	}
+  		// 	console.log(num)
+  		// }
+
+  		// aaa(5)
+  		// var a=document.getElementById('dv1')
+  		// alert(a)
+  		// var a=[1,2,3]
+  		// var b=a;
+  		// b=[1,2,3,4]
+  		// alert(a)
+  		
+  		
+
+  		// var obj={
+  		// 	a:10
+  		// }
+
+  		// var obj2=obj
+  		// obj2.a=20
+
+  		// alert(obj.a)
+  		// function abc(num){
+  			
+  		// 	if(num==1){
+  		// 		console.trace()
+  		// 		return 1
+  		// 	}
+  		// 	return num*abc(num-1)
+  		// }
+
+  		// alert(abc(4))
+
+
+
+
+  		// var arr=['str',{name:1,id:2},1,2]
+  		// var a={"x":1}
+  		// var b=a
+  		// b={"x":2}
+  		// alert(a.x)
+  		// var str=1;
+  		// function test1(){
+  		// 	if(!str){
+  		// 		var str=10
+  		// 	}
+  		// 	console.log(str)
+  		// }
+  		// console.log(str)
+  		// test1()
+  		console.log('12'+false)
+
+  		
+	</script>
+	<ul>
+		<li></li>
+		<li></li>
+	</ul>
+	
+	<div></div>
+	<div></div>
+</html>
